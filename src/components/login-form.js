@@ -1,6 +1,5 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
-import {Link} from 'react-router-dom';
 import Input from './input';
 import {login} from '../actions/auth';
 
@@ -19,6 +18,8 @@ export class LoginForm extends React.Component {
             error = (
                 <div className="form-error" aria-live="polite">
                     {this.props.error}
+                    <div className="spacer">
+                    </div>
                 </div>
             );
         }

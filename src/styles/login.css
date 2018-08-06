@@ -12,13 +12,17 @@
 }
 
 .spacer {
-  margin: 10px 0px;
+  margin: 20px 0px;
   border: 0.5px solid rgb(177, 177, 177);
   width: 100%;
 }
 
-.login-form {
-  margin: 20px;
+.form-error {
+  text-align: center;
+}
+
+input {
+  margin-bottom: 10px;
 }
 
 @media (max-width: 480px) {

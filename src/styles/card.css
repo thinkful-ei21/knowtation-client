@@ -1,0 +1,35 @@
+.card {
+  width: 600px;
+  padding: 20px;
+  background-color: rgb(242, 251, 255);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+  border-radius: 3px;
+}
+
+.code-snippet {
+  box-shadow: inset 0 0 4px #8f8f8f;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: auto;
+  text-align: left;
+  overflow: hidden;
+}
+
+.user-input {
+  text-align: center;
+}
+
+.user-input-bar {
+  text-align: center;
+  margin-right: 5px;
+  width: 100px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media (max-width: 620px) {
+  .card {
+    width: 90%;
+  }
+}

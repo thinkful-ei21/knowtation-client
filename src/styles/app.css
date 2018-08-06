@@ -3,8 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
   width: 100%;
+  height: 100%;
 }
 
 h1 {
@@ -20,18 +20,21 @@ a {
   color: black;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 button {
-  background-color: #88d699;
+  background-color: rgb(153, 197, 223);
   color: white;
   border: none;
   padding: 5px 10px;
   margin: 10px 0px;
   border-radius: 3px;
-  font-weight: bolder;
-  font-family: 'Exo', sans-serif;
+  font-size: 16px;
   text-align: center;
 }
 
 button:hover {
-  background-color: #74b983;
+  background-color: rgb(102, 166, 202);
 }
