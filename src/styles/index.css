@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+  background-image: none;
+  /* font-family: 'Exo', sans-serif; */
+}
+
+body {
+  margin: auto;
+  padding: 0;
+  width: 100%;
+  font-family: 'PT Sans', sans-serif;
+  background-image: url("https://i.pinimg.com/originals/2c/f9/74/2cf97428ac460d00c82c079adf9a7079.jpg");
+}

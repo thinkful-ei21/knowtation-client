@@ -1,0 +1,28 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  margin: 0;
+  background-color: rgb(242, 251, 255);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+  padding: 20px;
+  border-radius: 3px;
+}
+
+.spacer {
+  margin: 10px 0px;
+  border: 0.5px solid rgb(177, 177, 177);
+  width: 100%;
+}
+
+.login-form {
+  margin: 20px;
+}
+
+@media (max-width: 480px) {
+  .home {
+    width: 90%;
+  }
+}

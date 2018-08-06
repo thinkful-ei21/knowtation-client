@@ -4,7 +4,7 @@ import {Link, Redirect} from 'react-router-dom';
 
 import '../styles/login.css';
 
-import RegistrationForm from './registration-form';
+import LoginForm from './login-form';
 
 export function RegistrationPage(props) {
     // If we are logged in (which happens automatically when registration
@@ -15,17 +15,15 @@ export function RegistrationPage(props) {
     return (
         <div className="home">
 
-            <h2 className="login-form-header">Sign Up</h2>
+            <h2 className="login-form-header">Log In</h2>
 
-            <div className="login-form-container">
-                <RegistrationForm />
-            </div>
+            <LoginForm />
 
             <div className="spacer">
             </div>
 
-            <Link to="/login">
-                <button>Log In</button>
+            <Link to="/register">
+              <button>Sign Up</button>
             </Link>
 
             <Link to="/">

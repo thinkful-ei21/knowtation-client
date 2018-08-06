@@ -1,7 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
+
+import '../styles/header-bar.css'
 
 export class HeaderBar extends React.Component {
     logOut() {
@@ -19,7 +22,9 @@ export class HeaderBar extends React.Component {
         }
         return (
             <div className="header-bar">
-                <h1>Foo App</h1>
+                <h1>
+                    <Link to="/" className="title">(KNOW)tation</Link>
+                </h1>
                 {logOutButton}
             </div>
         );

@@ -1,0 +1,12 @@
+.header-bar {
+  margin-bottom: 10px;
+  background-color: rgb(153, 197, 223);
+  border-bottom: 3px solid rgb(226, 244, 252);
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+
+.title {
+  color: white;
+}
