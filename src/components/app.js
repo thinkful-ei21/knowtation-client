@@ -11,6 +11,7 @@ import Card from './card';
 import {refreshAuthToken} from '../actions/auth';
 
 import '../styles/app.css'
+import Aggretsuko from './aggretsuko';
 
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -47,6 +48,7 @@ export class App extends React.Component {
             <div className="app">
                 <HeaderBar />
                 <Route exact path="/" component={LandingPage} />
+                <Route exact path="/test" component={Aggretsuko} />
                 <Route exact path="/card" component={Card} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
