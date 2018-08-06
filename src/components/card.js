@@ -6,6 +6,13 @@ import '../styles/card.css'
 
 export class Card extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      toggleHint: true
+    }
+  }
+
   onSubmit(e) {
     e.preventDefault();
   }
@@ -14,12 +21,31 @@ export class Card extends React.Component {
     console.log(val.toLowerCase());
   }
 
+  toggleHint() {
+    this.setState({
+      toggleHint: !this.state.toggleHint
+    })
+  }
+
   render() {
+
+    let question = "Bubble Sort";
+    let questionURL = "https://en.wikipedia.org/wiki/Bubble_sort";
+
     return (
       <div className="card">
 
+        <div className="code-question">
+          <p>What is the Big O Notation of:<span> </span>
+            <a className="code-question-link" href={questionURL} target="_blank">
+              {question}
+            </a>
+            ?
+          </p>
+        </div>
+
         <div className="code-snippet">
-<pre>
+<pre> {/* formatting for <pre> tags have to be this way otherwise the extra indents will display in the DOM */}
 {
   `const bubbleSort = array => {
     let swaps = 0;
@@ -35,8 +61,21 @@ export class Card extends React.Component {
     return array;
   };`
 }
-</pre>
+</pre> {/* formatting for <pre> tags have to be this way otherwise the extra indents will display in the DOM */}
         </div>
+
+          <div className="code-hint">
+            <a href="#" onClick={() => this.toggleHint()} className="code-hint-toggle">
+              Hint
+            </a>
+            <div className={this.state.toggleHint ? "code-hint-hidden" : "code-hint-visible"}>
+              Notice how the function iterates recursively for each swap made.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+          </div>
           
           <div className="user-input">
             <form onSubmit={e => this.onSubmit(e)}>
