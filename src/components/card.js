@@ -56,7 +56,7 @@ export class Card extends React.Component {
         </div>
 
         <div className="code-snippet">
-<pre> {/* formatting for <pre> tags have to be this way otherwise the extra indents will display in the DOM */}
+<pre>
 {
   `const bubbleSort = array => {
     let swaps = 0;
@@ -72,7 +72,7 @@ export class Card extends React.Component {
     return array;
   };`
 }
-</pre> {/* formatting for <pre> tags have to be this way otherwise the extra indents will display in the DOM */}
+</pre>
         </div>
 
           <div className="code-hint">
