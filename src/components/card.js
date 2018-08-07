@@ -6,7 +6,6 @@ import {fetchQuestion, sendAnswerRequest} from '../actions/questions';
 import '../styles/card.css'
 
 export class Card extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
