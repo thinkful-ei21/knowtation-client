@@ -23,7 +23,7 @@ export class HeaderBar extends React.Component {
         return (
             <div className="header-bar">
                 <h1>
-                    <Link to="/" className="title">(KNOW)tation</Link>
+                    <Link to="/" className="title">KNOW(tation)</Link>
                 </h1>
             </div>
         );
