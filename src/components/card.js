@@ -4,10 +4,8 @@ import {connect} from 'react-redux';
 import '../styles/card.css'
 
 let testVar = decodeURI('%3Cpre%3Econst%20bubbleSort%20=%20array%20=%3E%20%7B%0A%20%20%20%20let%20swaps%20=%200;%0A%20%20%20%20for%20(let%20i%20=%200;%20i%20%3C%20array.length%20-%201;%20i++)%20%7B%0A%20%20%20%20%20%20if%20(array%5Bi%5D%20%3E%20array%5Bi%20+%201%5D)%20%7B%0A%20%20%20%20%20%20%20%20swap(array,%20i,%20i%20+%201);%0A%20%20%20%20%20%20%20%20swaps++;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20if%20(swaps%20%3E%200)%20%7B%0A%20%20%20%20%20%20return%20bubbleSort(array);%0A%20%20%20%20%7D%0A%20%20%20%20return%20array;%0A%20%20%7D;%0A%7D%0A%3C/pre%3E')
-
-const markup = string => {
-  return {__html: string};
-}
+let testVar2 = decodeURI('');
+let testVar3 = decodeURI('');
 
 export class Card extends React.Component {
 
@@ -32,6 +30,12 @@ export class Card extends React.Component {
     })
   }
 
+  markupHTML(decodedURI) {
+      return {
+        __html: decodedURI
+      };
+  }
+
   render() {
     console.log(typeof testVar);
 
@@ -46,7 +50,7 @@ export class Card extends React.Component {
           </p>
         </div>
 
-        <div className="code-snippet" dangerouslySetInnerHTML={markup(testVar)} />
+        <div className="code-snippet" dangerouslySetInnerHTML={this.markupHTML(testVar)} />
 
           <div className="code-hint">
             <a href="#" onClick={() => this.toggleHint()} className="code-hint-toggle">
