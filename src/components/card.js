@@ -30,17 +30,13 @@ export class Card extends React.Component {
   render() {
 
     let question = "Bubble Sort";
-    let questionURL = "https://en.wikipedia.org/wiki/Bubble_sort";
 
     return (
       <div className="card">
 
         <div className="code-question">
-          <p>What is the Big O Notation of:<span> </span>
-            <a className="code-question-link" href={questionURL} target="_blank">
-              {question}
-            </a>
-            ?
+          <p>What is the Big O Notation of:<span> </span>         
+            {question}?
           </p>
         </div>
 
