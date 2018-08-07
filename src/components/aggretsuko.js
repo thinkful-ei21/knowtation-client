@@ -31,15 +31,19 @@ export class Aggretsuko extends React.Component {
   aggretsuko() {
     let currentScore = this.state.winStreak;
     if (currentScore >= 0 && currentScore < 3) {
+      console.log('not bad...')
       return meh
     }
     else if (currentScore >= 3 && currentScore < 6) {
+      console.log('pretty good')
       return happy
     }
     else if (currentScore >= 6 && currentScore < 9) {
+      console.log('nice!')
       return excited
     }
     else {
+      console.log("YOU'RE ON FIRE!")
       return goingHam
     }
   }

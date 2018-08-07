@@ -1,11 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import '../styles/card.css'
+import {fetchQuestion, sendAnswerRequest} from '../actions/questions';
 
-let testVar = decodeURI('%3Cpre%3Econst%20bubbleSort%20=%20array%20=%3E%20%7B%0A%20%20%20%20let%20swaps%20=%200;%0A%20%20%20%20for%20(let%20i%20=%200;%20i%20%3C%20array.length%20-%201;%20i++)%20%7B%0A%20%20%20%20%20%20if%20(array%5Bi%5D%20%3E%20array%5Bi%20+%201%5D)%20%7B%0A%20%20%20%20%20%20%20%20swap(array,%20i,%20i%20+%201);%0A%20%20%20%20%20%20%20%20swaps++;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20if%20(swaps%20%3E%200)%20%7B%0A%20%20%20%20%20%20return%20bubbleSort(array);%0A%20%20%20%20%7D%0A%20%20%20%20return%20array;%0A%20%20%7D;%0A%7D%0A%3C/pre%3E')
-let testVar2 = decodeURI('');
-let testVar3 = decodeURI('');
+import '../styles/card.css'
 
 export class Card extends React.Component {
 
@@ -16,12 +14,35 @@ export class Card extends React.Component {
     }
   }
 
+  // receive server question body and parse - DONE
+  // need actions/reducers for fetch question, submit answer, "give up" on question - fetch question DONE
+  // when user "gives up", display answer and explanation
+  // format user input by trimming and excluding O's and parens
+  // validate answer on frontend, compare question.answer to user input - DONE
+  // need to decide where the validation is occurring
+
+  componentDidMount() {
+    this.props.dispatch(fetchQuestion());
+  }
+
   onSubmit(e) {
-    e.preventDefault();
+    this.validateAnswer(this.props.answer)
+    console.log(this.props.answer)
+    e.preventDefault(e);
   }
 
   onChange(val) {
-    console.log(val.toLowerCase());
+    this.props.dispatch(sendAnswerRequest(val.toLowerCase()));
+  }
+
+  validateAnswer(answer) {
+    if (answer === this.props.question.answer) {
+      console.log('Correct!');
+      return true;
+    } else {
+      console.log('Nah.');
+      return false;
+    }
   }
 
   toggleHint() {
@@ -30,44 +51,36 @@ export class Card extends React.Component {
     })
   }
 
-  markupHTML(decodedURI) {
+  markupHTML(snippet) {
       return {
-        __html: decodedURI
+        __html: decodeURI(snippet)
       };
   }
 
   render() {
-    console.log(typeof testVar);
-
-    let question = "Bubble Sort";
 
     return (
       <div className="card">
 
         <div className="code-question">
           <p>What is the Big O Notation of:<span> </span>         
-            {question}?
+            {this.props.question.title}?
           </p>
         </div>
 
-        <div className="code-snippet" dangerouslySetInnerHTML={this.markupHTML(testVar)} />
-
+        <div className="code-snippet" dangerouslySetInnerHTML={this.markupHTML(this.props.question.question)} />
           <div className="code-hint">
             <a href="#" onClick={() => this.toggleHint()} className="code-hint-toggle">
               Hint
             </a>
             <div className={this.state.toggleHint ? "code-hint-hidden" : "code-hint-visible"}>
-              Notice how the function iterates recursively for each swap made.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              {this.props.question.hint}
             </div>
           </div>
           
           <div className="user-input">
             <form onSubmit={e => this.onSubmit(e)}>
-              <input onChange={e => this.onChange(e.target.value)} className="user-input-bar" placeholder="O(n^2)"/>
+              <input onChange={e => this.onChange(e.target.value)} className="user-input-bar" placeholder={this.props.question.answer} />
               <button type="submit">Submit</button>
             </form>
           </div>
@@ -79,7 +92,8 @@ export class Card extends React.Component {
 }
 
 const mapStateToProps = state => ({
-
+  question: state.question.question,
+  answer: state.question.answer
 })
 
 export default connect(mapStateToProps)(Card);
