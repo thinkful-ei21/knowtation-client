@@ -3,21 +3,11 @@ import {connect} from 'react-redux';
 
 import '../styles/card.css'
 
-let testVar = 
-`const bubbleSort = array => {
-  let swaps = 0;
-  for (let i = 0; i < array.length - 1; i++) {
-    if (array[i] > array[i + 1]) {
-      swap(array, i, i + 1);
-      swaps++;
-    }
-  }
-  if (swaps > 0) {
-    return bubbleSort(array);
-  }
-  return array;
-};`
+let testVar = decodeURI('%3Cpre%3Econst%20bubbleSort%20=%20array%20=%3E%20%7B%0A%20%20%20%20let%20swaps%20=%200;%0A%20%20%20%20for%20(let%20i%20=%200;%20i%20%3C%20array.length%20-%201;%20i++)%20%7B%0A%20%20%20%20%20%20if%20(array%5Bi%5D%20%3E%20array%5Bi%20+%201%5D)%20%7B%0A%20%20%20%20%20%20%20%20swap(array,%20i,%20i%20+%201);%0A%20%20%20%20%20%20%20%20swaps++;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20if%20(swaps%20%3E%200)%20%7B%0A%20%20%20%20%20%20return%20bubbleSort(array);%0A%20%20%20%20%7D%0A%20%20%20%20return%20array;%0A%20%20%7D;%0A%7D%0A%3C/pre%3E')
 
+const markup = string => {
+  return {__html: string};
+}
 
 export class Card extends React.Component {
 
@@ -43,6 +33,7 @@ export class Card extends React.Component {
   }
 
   render() {
+    console.log(typeof testVar);
 
     let question = "Bubble Sort";
 
@@ -55,25 +46,7 @@ export class Card extends React.Component {
           </p>
         </div>
 
-        <div className="code-snippet">
-<pre>
-{
-  `const bubbleSort = array => {
-    let swaps = 0;
-    for (let i = 0; i < array.length - 1; i++) {
-      if (array[i] > array[i + 1]) {
-        swap(array, i, i + 1);
-        swaps++;
-      }
-    }
-    if (swaps > 0) {
-      return bubbleSort(array);
-    }
-    return array;
-  };`
-}
-</pre>
-        </div>
+        <div className="code-snippet" dangerouslySetInnerHTML={markup(testVar)} />
 
           <div className="code-hint">
             <a href="#" onClick={() => this.toggleHint()} className="code-hint-toggle">
