@@ -10,6 +10,7 @@ import {
 const initialState = {
   question: {},
   response: false,
+  streak: 0,
   loading: false,
   error: null
 }
@@ -51,6 +52,7 @@ export default function questionsReducer(state = initialState, action) {
     return {
       ...state,
       response: action.response.response, // should receive true/false
+      streak: (action.response.response ? this.streak += 1 : 0),
       loading: false,
       error: null
     }
