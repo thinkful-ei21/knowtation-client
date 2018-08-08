@@ -48,9 +48,9 @@ export const sendAnswerSuccess = () => ({
 })
 
 export const SEND_ANSWER_ERROR = 'SEND_ANSWER_ERROR';
-export const sendAnswerError = err => ({
+export const sendAnswerError = error => ({
   type: SEND_ANSWER_ERROR,
-  err
+  error
 })
 
 export const sendAnswer = answer => (dispatch, getState) => {
@@ -72,8 +72,3 @@ export const sendAnswer = answer => (dispatch, getState) => {
     dispatch(sendAnswerError(err));
   });
 }
-
-// make actions to fetch from /api/question
-
-// anytime we fetch a new question, decodeURI the response string
-
