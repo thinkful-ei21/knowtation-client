@@ -69,7 +69,8 @@ export const sendAnswer = answer => (dispatch, getState) => {
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then(console.log(answer))
+  .then(res => console.log(res)) // may need to parse response to just true or false
+  // .then(res => sendAnswerSuccess(res)) <-- update state with server response true or false
   .catch(err => {
     dispatch(sendAnswerError(err));
   });

@@ -15,13 +15,6 @@ export class Card extends React.Component {
     }
   }
 
-  // receive server question body and parse - DONE
-  // need actions/reducers for fetch question, submit answer, "give up" on question - fetch question DONE
-  // when user "gives up", display answer and explanation
-  // format user input by trimming and excluding O's and parens
-  // validate answer on frontend, compare question.answer to user input - DONE
-  // need to decide where the validation is occurring
-
   componentDidMount() {
     this.props.dispatch(fetchQuestion());
   }
@@ -61,7 +54,10 @@ export class Card extends React.Component {
           </p>
         </div>
 
+        {/* Code Snippet */}
         <div className="code-snippet" dangerouslySetInnerHTML={this.markupHTML(this.props.question.question)} />
+
+          {/* "Hint" button to display/hide hint */}
           <div className="code-hint">
             <a href="#" onClick={() => this.toggleHint()} className="code-hint-toggle">
               Hint
@@ -71,6 +67,7 @@ export class Card extends React.Component {
             </div>
           </div>
           
+          {/* Input bar with submit action */}
           <div className="user-input">
             <form onSubmit={e => this.onSubmit(e)}>
               <input onChange={e => this.onChange(e.target.value)} className="user-input-bar" placeholder={this.props.question.answer} />
