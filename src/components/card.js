@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import CardButtons from './card-buttons';
 
 import {fetchQuestion, sendAnswer} from '../actions/questions';
 
@@ -74,6 +75,8 @@ export class Card extends React.Component {
               <button type="submit">Submit</button>
             </form>
           </div>
+
+          <CardButtons />
         
       </div>
     )

@@ -1,29 +1,47 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {clearAuth} from '../actions/auth';
-import {clearAuthToken} from '../local-storage';
 
 import '../styles/header-bar.css'
 
 export class HeaderBar extends React.Component {
-    logOut() {
-        this.props.dispatch(clearAuth());
-        clearAuthToken();
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: 'KNOW(tation)'
+        }
+    }
+
+    onMouseEnter() {
+        if (this.props.loggedIn) {
+
+            this.setState({
+                title: 'Log Out'
+            })
+        } else {
+            this.setState({
+                title: 'Log In'
+            })
+        }   
+    }
+
+    onMouseLeave() {
+        this.setState({
+            title: 'KNOW(tation)'
+        })
     }
 
     render() {
-        // // Only render the log out button if we are logged in
-        // let logOutButton;
-        // if (this.props.loggedIn) {
-        //     logOutButton = (
-        //         <button onClick={() => this.logOut()}>Log out</button>
-        //     );
-        // }
+
         return (
             <div className="header-bar">
                 <h1>
-                    <Link to="/" className="title">KNOW(tation)</Link>
+                    <Link to={this.props.loggedIn ? '/logout' : '/login'} 
+                        className="title" 
+                        onMouseEnter={() => this.onMouseEnter()}
+                        onMouseLeave={() => this.onMouseLeave()}>
+                        {this.state.title}
+                    </Link>
                 </h1>
             </div>
         );

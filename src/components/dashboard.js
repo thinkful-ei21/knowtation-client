@@ -4,7 +4,6 @@ import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 
 import Card from './card';
-import CardButtons from './card-buttons';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -15,7 +14,6 @@ export class Dashboard extends React.Component {
         return (
             <div>
                 <Card />
-                <CardButtons />
             </div>
         );
     }
