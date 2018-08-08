@@ -55,7 +55,7 @@ export class Aggretsuko extends React.Component {
         <button onClick={() => this.onCorrectAnswer()}>Correct Answer</button>
         <button onClick={() => this.onWrongAnswer()}>Wrong Answer</button>
         <p className="current-score">{this.state.winStreak}</p>
-        <img src={this.aggretsuko()}/>
+        <img src={this.aggretsuko()} alt='w/e'/>
       </div>
     )
   }
