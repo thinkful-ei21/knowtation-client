@@ -1,18 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {sendAnswer} from '../actions/questions';
+import {fetchQuestion, sendAnswer} from '../actions/questions';
 
 import '../styles/card-buttons.css';
 
 export class CardButtons extends React.Component {
 
   onSkip() {
-    this.props.dispatch(sendAnswer(null));
+    this.props.dispatch(sendAnswer('wrong answer', this.props.question.id));
+    this.props.dispatch(fetchQuestion());
   }
 
   onNext() {
-    console.log(this.props.correct)
+    this.props.dispatch(fetchQuestion());
   }
 
   render() {
@@ -25,14 +26,15 @@ export class CardButtons extends React.Component {
         {/* Next button is disabled by default, this.props.correct is "false" by default */}
         {/* Next button is enabled when server receives an answer and sends back "true" */}
         {/* When "true" is sent back, this.props.correct will update to "true" */}
-        <button className="next-button" onClick={() => this.onNext()} disabled={!this.props.correct}>Next</button>
+        <button className="next-button" onClick={() => this.onNext()} disabled={!this.props.response}>Next</button>
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  correct: state.question.correct
+  question: state.question.question,
+  response: state.question.response
 })
 
 export default connect(mapStateToProps)(CardButtons);

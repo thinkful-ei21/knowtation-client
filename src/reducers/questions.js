@@ -9,7 +9,7 @@ import {
 
 const initialState = {
   question: {},
-  correct: false,
+  response: false,
   loading: false,
   error: null
 }
@@ -27,8 +27,9 @@ export default function questionsReducer(state = initialState, action) {
     case FETCH_QUESTION_SUCCESS:
     return {
       ...state,
-      question: action.question,
+      question: action.question.question,
       loading: false,
+      response: false,
       error: null
     }
 
@@ -49,7 +50,7 @@ export default function questionsReducer(state = initialState, action) {
     case SEND_ANSWER_SUCCESS:
     return {
       ...state,
-      correct: action.correct, // should receive true/false
+      response: action.response.response, // should receive true/false
       loading: false,
       error: null
     }

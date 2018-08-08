@@ -43,9 +43,9 @@ export const sendAnswerRequest = answer => ({
 })
 
 export const SEND_ANSWER_SUCCESS = 'SEND_ANSWER_SUCCESS';
-export const sendAnswerSuccess = correct => ({
+export const sendAnswerSuccess = response => ({
   type: SEND_ANSWER_SUCCESS,
-  correct
+  response
 })
 
 export const SEND_ANSWER_ERROR = 'SEND_ANSWER_ERROR';
@@ -54,23 +54,24 @@ export const sendAnswerError = error => ({
   error
 })
 
-export const sendAnswer = answer => (dispatch, getState) => {
+export const sendAnswer = (answer, questionID) => (dispatch, getState) => {
 
   const authToken = getState().auth.authToken;
 
-  return fetch(`${API_BASE_URL}/some-endpoint`, {
+  return fetch(`${API_BASE_URL}/questions/answer`, {
     method: 'POST',
     headers: {
+      'content-type': 'application/json',
       Authorization: `Bearer ${authToken}`
     },
     body: JSON.stringify({
-      answer: answer
+      answer: answer,
+      question: questionID
     })
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then(res => console.log(res)) // may need to parse response to just true or false
-  // .then(res => sendAnswerSuccess(res)) <-- update state with server response true or false
+  .then(res => dispatch(sendAnswerSuccess(res)))
   .catch(err => {
     dispatch(sendAnswerError(err));
   });

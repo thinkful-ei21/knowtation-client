@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import CardButtons from './card-buttons';
+import Aggretsuko from './aggretsuko';
 
 import {fetchQuestion, sendAnswer} from '../actions/questions';
 
@@ -22,8 +23,8 @@ export class Card extends React.Component {
 
   onSubmit(e) {
     e.preventDefault(e);
-    console.log(this.state.answer);
-    this.props.dispatch(sendAnswer(this.state.answer));
+    this.props.dispatch(sendAnswer(this.state.answer, this.props.question.id));
+    console.log(this.props.response)
   }
 
   onChange(val) {
@@ -77,7 +78,7 @@ export class Card extends React.Component {
           </div>
 
           <CardButtons />
-        
+          <Aggretsuko />
       </div>
     )
   }
