@@ -43,8 +43,9 @@ export const sendAnswerRequest = answer => ({
 })
 
 export const SEND_ANSWER_SUCCESS = 'SEND_ANSWER_SUCCESS';
-export const sendAnswerSuccess = () => ({
-  type: SEND_ANSWER_SUCCESS
+export const sendAnswerSuccess = correct => ({
+  type: SEND_ANSWER_SUCCESS,
+  correct
 })
 
 export const SEND_ANSWER_ERROR = 'SEND_ANSWER_ERROR';
@@ -63,11 +64,12 @@ export const sendAnswer = answer => (dispatch, getState) => {
       Authorization: `Bearer ${authToken}`
     },
     body: JSON.stringify({
-      answer
+      answer: answer
     })
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
+  .then(console.log(answer))
   .catch(err => {
     dispatch(sendAnswerError(err));
   });

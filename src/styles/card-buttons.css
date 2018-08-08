@@ -1,0 +1,25 @@
+.card-buttons {
+  text-align: center;
+}
+
+.skip-button, .next-button {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 24px;
+}
+
+.next-button:disabled {
+  background-color: gray;
+}
+
+.skip-button {
+  background-color: rgb(224, 134, 134);
+}
+
+.skip-button:hover {
+  background-color: rgb(209, 102, 102);
+}
+
+.skip-button:active {
+  background-color: rgb(196, 53, 53);
+}

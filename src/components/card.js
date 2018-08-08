@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {fetchQuestion, sendAnswerRequest} from '../actions/questions';
+import {fetchQuestion, sendAnswer} from '../actions/questions';
 
 import '../styles/card.css'
 
@@ -9,7 +9,9 @@ export class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggleHint: true
+      answer: null,
+      toggleHint: true,
+      currentScore: 0
     }
   }
 
@@ -25,23 +27,15 @@ export class Card extends React.Component {
   }
 
   onSubmit(e) {
-    this.validateAnswer(this.props.answer)
-    console.log(this.props.answer)
     e.preventDefault(e);
+    console.log(this.state.answer);
+    this.props.dispatch(sendAnswer(this.state.answer));
   }
 
   onChange(val) {
-    this.props.dispatch(sendAnswerRequest(val.toLowerCase()));
-  }
-
-  validateAnswer(answer) {
-    if (answer === this.props.question.answer) {
-      console.log('Correct!');
-      return true;
-    } else {
-      console.log('Nah.');
-      return false;
-    }
+    this.setState({
+      answer: val.toLowerCase().replace(/[o()]/gm, '')
+    })
   }
 
   toggleHint() {
@@ -91,8 +85,7 @@ export class Card extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  question: state.question.question,
-  answer: state.question.answer
+  question: state.question.question
 })
 
 export default connect(mapStateToProps)(Card);
