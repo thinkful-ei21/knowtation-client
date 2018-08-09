@@ -10,6 +10,7 @@ export class CardButtons extends React.Component {
   onSkip() {
     this.props.dispatch(sendAnswer('wrong answer', this.props.question.id));
     this.props.dispatch(fetchQuestion());
+    console.log(this.props.response)
   }
 
   onNext() {

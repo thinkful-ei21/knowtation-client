@@ -30,7 +30,7 @@ export default function questionsReducer(state = initialState, action) {
     case FETCH_QUESTION_SUCCESS:
     return {
       ...state,
-      question: action.question.question,
+      question: action.question.question, // this only contains the question w/o the title, hint, etc
       numCorrect: action.question.numCorrect,
       numAttempts: action.question.numAttempts,
       loading: false,
@@ -56,7 +56,7 @@ export default function questionsReducer(state = initialState, action) {
     return {
       ...state,
       response: action.response.response, // should receive true/false
-      streak: (action.response.response ? this.streak += 1 : 0),
+      streak: (action.response.response ? state.streak += 1 : 0),
       numCorrect: action.response.numCorrect,
       numAttempts: action.response.numAttempts,
       loading: false,
