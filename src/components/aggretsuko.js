@@ -31,8 +31,8 @@ export class Aggretsuko extends React.Component {
 
     return (
       <div className="aggretsuko">
-        <p className="current-score">{this.props.streak}</p>
-        <img className="gif" src={this.aggretsuko()} alt='w/e'/>
+        <p className="current-score">Streak: {this.props.streak}</p>
+        {/* <img className="gif" src={this.aggretsuko()} alt='w/e'/> */}
       </div>
     )
   }

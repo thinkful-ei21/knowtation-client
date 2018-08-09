@@ -50,13 +50,18 @@ export class Card extends React.Component {
 
     return (
       <div className="card">
-
-        {/* TEST CODE / REMOVE LATER */}
+    
         <div>
-          {this.props.numCorrect}
-          {this.props.numAttempts}
+
+          <div className="correct">
+            Correct: {this.props.numCorrect}
+          </div>
+
+          <div className="attempts">
+            Attempts: {this.props.numAttempts}
+          </div>
+     
         </div>
-        {/* TEST CODE / REMOVE LATER */}
 
         <div className="code-question">
           <p>What is the Big O Notation of:<span> </span>         
