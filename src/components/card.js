@@ -51,16 +51,9 @@ export class Card extends React.Component {
     return (
       <div className="card">
     
-        <div>
-
-          <div className="correct">
-            Correct: {this.props.numCorrect}
-          </div>
-
-          <div className="attempts">
-            Attempts: {this.props.numAttempts}
-          </div>
-     
+        <div className="correct">
+          Correct: {this.props.numCorrect}
+          <span className="attempts">Attempts: {this.props.numAttempts}</span>
         </div>
 
         <div className="code-question">
