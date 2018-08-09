@@ -15,7 +15,7 @@ export class CardButtons extends React.Component {
   render() {
     return (
       <div className="card-buttons">
-        <button className="skip-button" onClick={() => this.onSkip()} disabled={!this.props.loading}>Skip</button>
+        <button className="skip-button" onClick={() => this.onSkip()} disabled={this.props.loading}>Skip</button>
       </div>
     )
   }
