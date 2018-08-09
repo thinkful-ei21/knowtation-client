@@ -23,7 +23,7 @@ export class Card extends React.Component {
 
   onSubmit(e) {
     e.preventDefault(e);
-    this.props.dispatch(sendAnswer(this.state.answer, this.props.question.id));
+    this.props.dispatch(sendAnswer(this.state.answer));
     console.log(this.props.response)
   }
 

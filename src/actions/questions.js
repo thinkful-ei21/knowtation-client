@@ -54,7 +54,7 @@ export const sendAnswerError = error => ({
   error
 })
 
-export const sendAnswer = (answer, questionID) => (dispatch, getState) => {
+export const sendAnswer = answer => (dispatch, getState) => {
 
   const authToken = getState().auth.authToken;
 
@@ -65,8 +65,7 @@ export const sendAnswer = (answer, questionID) => (dispatch, getState) => {
       Authorization: `Bearer ${authToken}`
     },
     body: JSON.stringify({
-      answer: answer,
-      question: questionID
+      answer: answer
     })
   })
   .then(res => normalizeResponseErrors(res))
