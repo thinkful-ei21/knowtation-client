@@ -25,7 +25,7 @@ export class Card extends React.Component {
     e.preventDefault(e);
     this.props.dispatch(sendAnswer(this.state.answer));
     this.props.dispatch(fetchQuestion());
-    console.log(this.props.response)
+    e.target.reset();
   }
 
   onChange(val) {
