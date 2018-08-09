@@ -7,10 +7,6 @@
   font-size: 24px;
 }
 
-.next-button:disabled {
-  background-color: gray;
-}
-
 .skip-button {
   background-color: rgb(224, 134, 134);
 }
@@ -21,6 +17,10 @@
 
 .skip-button:active {
   background-color: rgb(196, 53, 53);
+}
+
+.skip-button:disabled {
+  background-color: gray;
 }
 
 @media (max-width: 620px) {
