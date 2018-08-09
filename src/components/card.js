@@ -29,7 +29,7 @@ export class Card extends React.Component {
 
   onChange(val) {
     this.setState({
-      answer: val.toLowerCase().replace(/[o()]/gm, '')
+      answer: val.toLowerCase().replace(/[O()]/gm, '')
     })
   }
 
