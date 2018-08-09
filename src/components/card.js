@@ -24,12 +24,13 @@ export class Card extends React.Component {
   onSubmit(e) {
     e.preventDefault(e);
     this.props.dispatch(sendAnswer(this.state.answer));
+    this.props.dispatch(fetchQuestion());
     console.log(this.props.response)
   }
 
   onChange(val) {
     this.setState({
-      answer: val.toLowerCase().replace(/[O()]/gm, '')
+      answer: val.replace(/[O()]/gm, '').toLowerCase()
     })
   }
 
@@ -79,7 +80,7 @@ export class Card extends React.Component {
           {/* Input bar with submit action */}
           <div className="user-input">
             <form onSubmit={e => this.onSubmit(e)}>
-              <input onChange={e => this.onChange(e.target.value)} className="user-input-bar" placeholder={this.props.question.answer} />
+              <input onChange={e => this.onChange(e.target.value)} className="user-input-bar" placeholder={this.props.question.answer} required />
               <button type="submit">Submit</button>
             </form>
           </div>
