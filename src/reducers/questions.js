@@ -31,6 +31,8 @@ export default function questionsReducer(state = initialState, action) {
     return {
       ...state,
       question: action.question.question,
+      numCorrect: action.question.numCorrect,
+      numAttempts: action.question.numAttempts,
       loading: false,
       response: false,
       error: null
