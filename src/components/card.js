@@ -50,6 +50,13 @@ export class Card extends React.Component {
     return (
       <div className="card">
 
+        {/* TEST CODE / REMOVE LATER */}
+        <div>
+          {this.props.numCorrect}
+          {this.props.numAttempts}
+        </div>
+        {/* TEST CODE / REMOVE LATER */}
+
         <div className="code-question">
           <p>What is the Big O Notation of:<span> </span>         
             {this.props.question.title}?
@@ -86,7 +93,9 @@ export class Card extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  question: state.question.question
+  question: state.question.question,
+  numCorrect: state.question.numCorrect,
+  numAttempts: state.question.numAttempts
 })
 
 export default connect(mapStateToProps)(Card);

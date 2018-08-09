@@ -11,6 +11,8 @@ const initialState = {
   question: {},
   response: false,
   streak: 0,
+  numCorrect: 0,
+  numAttempts: 0,
   loading: false,
   error: null
 }
@@ -53,6 +55,8 @@ export default function questionsReducer(state = initialState, action) {
       ...state,
       response: action.response.response, // should receive true/false
       streak: (action.response.response ? this.streak += 1 : 0),
+      numCorrect: action.response.numCorrect,
+      numAttempts: action.response.numAttempts,
       loading: false,
       error: null
     }
