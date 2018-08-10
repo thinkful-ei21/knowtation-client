@@ -53,7 +53,7 @@ export class Card extends React.Component {
   render() {
 
     return (
-      <div className="card">
+      <main className="card" aria-live="polite">
     
         <div className="correct">
           Correct: {this.props.numCorrect}
@@ -89,7 +89,7 @@ export class Card extends React.Component {
 
           <CardButtons />
           <Aggretsuko />
-      </div>
+      </main>
     )
   }
 

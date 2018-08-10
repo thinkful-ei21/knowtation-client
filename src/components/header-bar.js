@@ -34,7 +34,7 @@ export class HeaderBar extends React.Component {
     render() {
 
         return (
-            <div className="header-bar">
+            <header role="banner" className="header-bar">
                 <h1>
                     <Link to={this.props.loggedIn ? '/logout' : '/login'} 
                         className="title" 
@@ -43,7 +43,7 @@ export class HeaderBar extends React.Component {
                         {this.state.title}
                     </Link>
                 </h1>
-            </div>
+            </header>
         );
     }
 }
