@@ -24,8 +24,12 @@ export class Card extends React.Component {
   onSubmit(e) {
     e.preventDefault(e);
     this.props.dispatch(sendAnswer(this.state.answer));
-    this.props.dispatch(fetchQuestion());
+    setTimeout(this.waitXSeconds, 1500);
     e.target.reset();
+  }
+
+  waitXSeconds() {
+    this.props.dispatch(fetchQuestion());
   }
 
   onChange(val) {

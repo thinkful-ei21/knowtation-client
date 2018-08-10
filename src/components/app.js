@@ -8,6 +8,7 @@ import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
 import LoginPage from './login-page';
 import Logout from './logout';
+import RightOrWrong from './rightorwrong';
 import {refreshAuthToken} from '../actions/auth';
 
 import '../styles/app.css'
@@ -43,9 +44,33 @@ export class App extends React.Component {
         clearInterval(this.refreshInterval);
     }
 
+    // showGIF() {
+
+    //     switch(this.props.validaton) {
+
+    //         case true:
+    //         return <RightOrWrong />
+
+    //         case false:
+    //         return <RightOrWrong />
+
+    //         default:
+    //         return null;
+    //     }
+    //     if (this.props.validation && this.props.validation !== null) {
+    //         return (
+    //             <RightOrWrong />
+    //         )
+    //     }
+    // }
+
     render() {
+
         return (
             <div className="app">
+
+                <RightOrWrong />
+
                 <HeaderBar />
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/test" component={Aggretsuko} />
@@ -60,7 +85,8 @@ export class App extends React.Component {
 
 const mapStateToProps = state => ({
     hasAuthToken: state.auth.authToken !== null,
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    validation: state.question.validation
 });
 
 // Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking

@@ -12,6 +12,10 @@
   margin-bottom: 20px;
 }
 
+.onboarding-link {
+  font-weight: bold;
+}
+
 @media (max-width: 620px) {
   .user-onboarding {
     width: 90%;

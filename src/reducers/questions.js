@@ -13,6 +13,7 @@ const initialState = {
   streak: 0,
   numCorrect: 0,
   numAttempts: 0,
+  validation: null,
   loading: false,
   error: null
 }
@@ -30,9 +31,10 @@ export default function questionsReducer(state = initialState, action) {
     case FETCH_QUESTION_SUCCESS:
     return {
       ...state,
-      question: action.question.question, // this only contains the question w/o the title, hint, etc
+      question: action.question.question,
       numCorrect: action.question.numCorrect,
       numAttempts: action.question.numAttempts,
+      validation: null,
       loading: false,
       response: false,
       error: null
@@ -55,10 +57,11 @@ export default function questionsReducer(state = initialState, action) {
     case SEND_ANSWER_SUCCESS:
     return {
       ...state,
-      response: action.response.response, // should receive true/false
+      response: action.response.response,
       streak: (action.response.response ? state.streak += 1 : 0),
       numCorrect: action.response.numCorrect,
       numAttempts: action.response.numAttempts,
+      validation: (state.response ? true : false),
       loading: false,
       error: null
     }
