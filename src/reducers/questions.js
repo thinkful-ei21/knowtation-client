@@ -61,7 +61,7 @@ export default function questionsReducer(state = initialState, action) {
       streak: (action.response.response ? state.streak += 1 : 0),
       numCorrect: action.response.numCorrect,
       numAttempts: action.response.numAttempts,
-      validation: (state.response ? true : false),
+      validation: action.response.response,
       loading: false,
       error: null
     }

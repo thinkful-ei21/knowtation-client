@@ -8,7 +8,7 @@ export class RightOrWrong extends React.Component {
 
     render() {
 
-      if (this.props.validation && this.props.validation !== null) {
+      if (this.props.validation === true && this.props.validation !== null) {
         return (
           <div className="right-or-wrong">
             <img src="https://media.giphy.com/media/l378blSjkootPNzTq/giphy.gif" />
@@ -16,7 +16,7 @@ export class RightOrWrong extends React.Component {
         );
       }
 
-      if (!this.props.validation && this.props.validation !== null) {
+      if (this.props.validation === false && this.props.validation !== null) {
         return (
           <div className="right-or-wrong">
             <img src="https://media.giphy.com/media/26n6xXh5UiF0BZx7y/giphy.gif" />
