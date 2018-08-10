@@ -82,7 +82,7 @@ export class Card extends React.Component {
           {/* Input bar with submit action */}
           <div className="user-input">
             <form onSubmit={e => this.onSubmit(e)}>
-              <input onChange={e => this.onChange(e.target.value)} className="user-input-bar" placeholder={this.props.question.answer} required />
+              <input onChange={e => this.onChange(e.target.value)} className="user-input-bar" placeholder="n^2" required />
               <button type="submit">Submit</button>
             </form>
           </div>
