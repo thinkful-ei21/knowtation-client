@@ -22,6 +22,8 @@ export function RegistrationPage(props) {
             <div className="spacer">
             </div>
 
+            <p>Demo Credentials: username: angelo, password: password</p>
+
             <Link to="/register">
               <button>Sign Up</button>
             </Link>

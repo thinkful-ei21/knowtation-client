@@ -33,6 +33,7 @@ export class LoginForm extends React.Component {
                 <label htmlFor="username">Username</label>
                 <Field
                     component={Input}
+                    inputClass='login-register-input'
                     type="text"
                     name="username"
                     id="username"
@@ -41,15 +42,15 @@ export class LoginForm extends React.Component {
                 <label htmlFor="password">Password</label>
                 <Field
                     component={Input}
+                    inputClass='login-register-input'
                     type="password"
                     name="password"
                     id="password"
                     validate={[required, nonEmpty]}
                 />
                 <button disabled={this.props.pristine || this.props.submitting}>
-                    Log in
+                    Log In
                 </button>
-
             </form>
         );
     }

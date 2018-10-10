@@ -25,6 +25,11 @@ input {
   margin-bottom: 10px;
 }
 
+.login-register-input {
+  border: 2px solid black;
+  padding: 3px 3px;
+}
+
 @media (max-width: 480px) {
   .home {
     width: 90%;
