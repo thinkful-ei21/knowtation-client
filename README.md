@@ -12,7 +12,7 @@
 
 ## Set up
 
-* Clone both this repo and the [back end repo](https://github.com/thinkful-ei21/hearbuds-server)
+* Clone both this repo and the [back end repo](https://github.com/thinkful-ei21/knowtation-server)
 * cd into the front
 * run `npm install`
 * run `npm start`
