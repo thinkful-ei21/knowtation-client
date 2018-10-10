@@ -32,15 +32,14 @@ export class HeaderBar extends React.Component {
     }
 
     render() {
-
+        const title = this.props.loggedIn ? 'Logout' : 'Login';
         return (
             <header role="banner" className="header-bar">
                 <h1>
+                    <Link className='title' to='/'>KNOW(tation)</Link>
                     <Link to={this.props.loggedIn ? '/logout' : '/login'} 
-                        className="title" 
-                        onMouseEnter={() => this.onMouseEnter()}
-                        onMouseLeave={() => this.onMouseLeave()}>
-                        {this.state.title}
+                        className="log-link">
+                        {title}
                     </Link>
                 </h1>
             </header>

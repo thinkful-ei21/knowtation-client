@@ -1,25 +1,25 @@
 # Knowtation
 
-## A spaced reptition app to learn Big O Notation
+This is the front end of a spaced reptition learning project. The goal is to get better at figuring out time complexity for algorithms. Using spaced reptition, this is an app to practice.
 
-## Links
+Live demo is [here](https://knowtation-app.firebaseapp.com/) 
 
-<p><a href='https://knowtation-app.firebaseapp.com/'>Live App</a></p>
-<p>Test Credentials: username: angelo, password: password
-<p><a href='https://github.com/thinkful-ei21/knowtation-server'>Back End Code</a></p>
+Back end repo is [here](https://github.com/thinkful-ei21/knowtation-server)
 
 ----
 
-## Set up
+## Install
 
-* Clone both this repo and the [back end repo](https://github.com/thinkful-ei21/knowtation-server)
-* cd into the front
-* run `npm install`
-* run `npm start`
-* cd into the back
-* run `npm install`
-* run `npm start`
+Clone this repo, `cd` into the new project folder, run `npm install` in the terminal
 
-## Database
+## Technologies Used 
 
-The database uses MongoDB and is currently live hosted on mLab. You will need to add in your own questions.
+* React
+* Redux
+* React Router DOM
+* Redux Thunk
+
+## Screenshots
+
+![Landing Page](screenshots/landing-page.png)
+![Sample Questions](screenshots/question.png)
